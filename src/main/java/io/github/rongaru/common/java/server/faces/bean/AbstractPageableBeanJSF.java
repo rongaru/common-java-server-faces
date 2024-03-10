@@ -1,8 +1,6 @@
 package io.github.rongaru.common.java.server.faces.bean;
 
-import java.util.List;
-
-public abstract class AbstractPageableBeanJSF< Dto, DataModelJsf, AuthenticationDataModelJsf > extends AbstractBeanJSF< DataModelJsf, AuthenticationDataModelJsf > {
+public abstract class AbstractPageableBeanJSF< Dto, Service, UserDto, DataModelJSF, AuthenticationDataModelJSF > extends AbstractBeanJSF< Dto, Service, UserDto, DataModelJSF, AuthenticationDataModelJSF > {
 
 	public abstract void setRecordsPerPage( );
 
@@ -10,7 +8,4 @@ public abstract class AbstractPageableBeanJSF< Dto, DataModelJsf, Authentication
 
 	protected abstract void setDataTableRecords( );
 
-	protected abstract List< Dto > getDataTableRecords( );
-
 }
-

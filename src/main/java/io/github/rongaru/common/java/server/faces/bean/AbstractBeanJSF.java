@@ -3,42 +3,11 @@ package io.github.rongaru.common.java.server.faces.bean;
 import io.github.rongaru.common.java.server.faces.utility.FacesMessageUtility;
 import io.github.rongaru.common.java.server.faces.utility.FacesScreenUtility;
 
-public abstract class AbstractBeanJSF< DataModelJSF, AuthenticationDataModelJSF > {
-
-	protected DataModelJSF dataModelJSF;
-
-	protected AuthenticationDataModelJSF authenticationDataModelJSF;
-
-	protected abstract String getAccessDeniedScreen( );
-
-	protected abstract String getAccessAllowedScreen( );
-
-	protected abstract void deleteAndCreateDataModelJSF( );
-
-	protected abstract boolean isUserHasAccessAllowedToScreen( );
-
-	protected abstract void setScreenRedirectionDefaultParameters( );
-
-	protected abstract void deleteUselessSessionScopedDataModelJSF( );
-
-	protected DataModelJSF getDataModelJSF( ) {
-		return dataModelJSF;
-	}
-
-	protected void setDataModelJSF( DataModelJSF dataModelJSF ) {
-		this.dataModelJSF = dataModelJSF;
-	}
-
-	protected AuthenticationDataModelJSF getAuthenticationDataModelJSF( ) {
-		return authenticationDataModelJSF;
-	}
-
-	protected void setAuthenticationDataModelJSF( AuthenticationDataModelJSF authenticationDataModelJSF ) {
-		this.authenticationDataModelJSF = authenticationDataModelJSF;
-	}
+public abstract class AbstractBeanJSF< Dto, Service, UserDto, DataModelJSF, AuthenticationDataModelJSF > extends AbstractBeanJSFLevel_6< Dto, Service, UserDto, DataModelJSF, AuthenticationDataModelJSF > {
 
 	public String redirectToScreen( ) {
-		if ( isUserHasAccessAllowedToScreen( ) ) {
+		UserDto userDto = getSessionUserDto( );
+		if ( isUserHasAccessAllowedToScreen( userDto ) ) {
 			deleteAndCreateDataModelJSF( );
 			setScreenRedirectionDefaultParameters( );
 			deleteUselessSessionScopedDataModelJSF( );
