@@ -8,7 +8,7 @@ import javax.enterprise.inject.spi.BeanManager;
 
 import java.util.List;
 
-import io.github.rongaru.common.java.server.faces.scope.CustomSessionScopedDataModelJSF;
+import io.github.rongaru.common.java.server.faces.scope.SessionViewScopedDataModelJSF;
 
 public class ContextManagedBeanUtility {
 
@@ -39,7 +39,7 @@ public class ContextManagedBeanUtility {
 
 	public static void destroyUselessSessionScopedDataModelJSFManagedBeansNotIn( BeanManager beanManager, List< Class > protectedDataModelJSFClasses ) {
 		AlterableContext alterableContext = ( AlterableContext ) beanManager.getContext( SessionScoped.class );
-		for ( Bean contextMangedBean: beanManager.getBeans( CustomSessionScopedDataModelJSF.class ) ) {
+		for ( Bean contextMangedBean: beanManager.getBeans( SessionViewScopedDataModelJSF.class ) ) {
 			Class contextMangedBeanClass = contextMangedBean.getBeanClass( );
 			if ( !protectedDataModelJSFClasses.contains( contextMangedBeanClass ) ) {
 				alterableContext.destroy( contextMangedBean );
