@@ -11,12 +11,12 @@ abstract class AbstractBeanJSFLevel_6< Dto, Service, UserDto, DataModelJSF, Auth
 	}
 
 	protected void deleteAndCreateDataModelJSF( ) {
-		Class< DataModelJSF > dataModelJSFClass = getParameterizedInstanceClass( dataModelJSF );
+		Class< DataModelJSF > dataModelJSFClass = getParameterizedInstanceClass( 4, dataModelJSF );
 		dataModelJSF = ContextManagedBeanUtility.destroyAndConstructContextManagedBean( beanManager, dataModelJSFClass );
 	}
 
 	protected void deleteUselessSessionScopedDataModelJSF( ) {
-		Class< DataModelJSF > dataModelJSFClass = getParameterizedInstanceClass( dataModelJSF );
+		Class< DataModelJSF > dataModelJSFClass = getParameterizedInstanceClass( 4, dataModelJSF );
 		ContextManagedBeanUtility.destroyUselessSessionScopedDataModelJSFManagedBeansNotIn( beanManager, Collections.singletonList( dataModelJSFClass ) );
 	}
 

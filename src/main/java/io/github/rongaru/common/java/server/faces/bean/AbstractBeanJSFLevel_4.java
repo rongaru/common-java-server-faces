@@ -8,6 +8,6 @@ abstract class AbstractBeanJSFLevel_4< Dto, Service, UserDto, DataModelJSF, Auth
 
 	protected abstract boolean isUserHasAccessAllowedToScreen( UserDto userDto );
 
-	protected abstract < Target > Class< Target > getParameterizedInstanceClass( Target instance );
+	protected abstract < Target > Class< Target > getParameterizedInstanceClass( int index, Target instance );
 
 }
